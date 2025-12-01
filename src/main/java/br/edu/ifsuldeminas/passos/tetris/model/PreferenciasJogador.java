@@ -20,7 +20,6 @@ public class PreferenciasJogador {
 
     // relacionamento 1 pra 1 com Jogador
     @OneToOne
-    @JoinColumn(name = "jogador_id")
     private Jogador jogador;
 
     public Long getId() {
