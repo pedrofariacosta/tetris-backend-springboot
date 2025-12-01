@@ -2,6 +2,7 @@ package br.edu.ifsuldeminas.passos.tetris.controllers;
 
 import br.edu.ifsuldeminas.passos.tetris.model.Jogador;
 import br.edu.ifsuldeminas.passos.tetris.services.JogadorService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class JogadorController {
 
     //salva um novo jogador
     @PostMapping
-    public Jogador criar(@RequestBody Jogador jogador) {
+    public Jogador criar(@Valid @RequestBody Jogador jogador) {
         return service.salvar(jogador);
     }
 
