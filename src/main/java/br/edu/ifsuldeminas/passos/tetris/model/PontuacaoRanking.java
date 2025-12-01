@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class PontuacaoRanking {
@@ -14,7 +16,11 @@ public class PontuacaoRanking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "A pontuação é obrigatória")
+    @Min(value = 0, message = "A pontuação não pode ser negativa")
     private int pontuacao;
+
+    @NotNull(message = "A data de registro é obrigatória")
     private LocalDate dataRegistro;
 
     @ManyToOne
