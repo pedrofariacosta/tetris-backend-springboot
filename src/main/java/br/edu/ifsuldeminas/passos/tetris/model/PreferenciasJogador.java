@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class PreferenciasJogador {
@@ -14,7 +15,10 @@ public class PreferenciasJogador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "A velocidade do jogo é obrigatória")
     private String velocidadeJogo;
+
+    @NotBlank(message = "O tema de cores é obrigatório")
     private String temaCores;
     private boolean mostrarProximaPeca;
 
